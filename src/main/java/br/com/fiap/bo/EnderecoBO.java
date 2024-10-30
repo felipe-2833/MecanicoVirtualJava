@@ -13,23 +13,23 @@ public class EnderecoBO {
         return enderecoDAO.findAll();
     }
 
-    public EnderecoTO findByCodigo(Long codigo) {
+    public EnderecoTO findByCodigo(Long id) {
         enderecoDAO = new EnderecoDAO();
-        return enderecoDAO.findByCodigo(codigo);
+        return enderecoDAO.findByCodigo(id);
     }
 
-    public EnderecoTO save(EnderecoTO remedio) {
+    public EnderecoTO save(EnderecoTO endereco) {
         enderecoDAO = new EnderecoDAO();
-        return enderecoDAO.save(remedio);
+        return enderecoDAO.save(endereco);
     }
 
-    public boolean delete(Long codigo) {
+    public boolean delete(Long id) {
         enderecoDAO = new EnderecoDAO();
-        return enderecoDAO.delete(codigo);
+        return enderecoDAO.delete(id);
     }
 
-    public EnderecoTO update(EnderecoTO remedio) {
+    public EnderecoTO update(EnderecoTO endereco) {
         enderecoDAO = new EnderecoDAO();
-        return enderecoDAO.update(remedio);
+        return enderecoDAO.update(endereco);
     }
 }

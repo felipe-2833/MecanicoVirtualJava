@@ -98,7 +98,7 @@ public class EnderecoDAO extends Repository{
     }
 
     public EnderecoTO update(EnderecoTO endereco){
-        String sql = "update ddd_endereco_farma set endereco_id_user = ?, cep = ?, rua = ?, cidade = ?, estado = ?, numero = ? where id_endereco = ?";
+        String sql = "update endereco set endereco_id_user = ?, cep = ?, rua = ?, cidade = ?, estado = ?, numero = ? where id_endereco = ?";
         try(PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setLong(1, endereco.getEnderecoIdUser());
             ps.setString(2, endereco.getCep());
