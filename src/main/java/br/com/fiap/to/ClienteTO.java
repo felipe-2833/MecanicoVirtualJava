@@ -1,6 +1,7 @@
 package br.com.fiap.to;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
@@ -13,13 +14,13 @@ public class ClienteTO {
     private String CPFCliente;
     @PastOrPresent
     private LocalDate dataNascimento;
-    @NotBlank
+    @NotNull
     private char sexo;
 
     public ClienteTO() {
     }
 
-    public ClienteTO(Long clienteIdUser, @NotBlank String numeroCNH, @NotBlank String CPFCliente, @PastOrPresent LocalDate dataNascimento, @NotBlank char sexo) {
+    public ClienteTO(Long clienteIdUser, String numeroCNH, String CPFCliente, LocalDate dataNascimento, char sexo) {
         this.clienteIdUser = clienteIdUser;
         this.numeroCNH = numeroCNH;
         this.CPFCliente = CPFCliente;
@@ -59,12 +60,12 @@ public class ClienteTO {
         this.dataNascimento = dataNascimento;
     }
 
-    @NotBlank
+    @NotNull
     public char getSexo() {
         return sexo;
     }
 
-    public void setSexo(@NotBlank char sexo) {
+    public void setSexo(@NotNull char sexo) {
         this.sexo = sexo;
     }
 }

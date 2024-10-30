@@ -1,8 +1,10 @@
 package br.com.fiap.dao;
 
+import br.com.fiap.to.ClienteTO;
 import br.com.fiap.to.OficinaTO;
 import br.com.fiap.to.UsuarioTO;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -72,12 +74,12 @@ public class UsuarioDAO extends Repository{
             ps.setString(5, usuario.getTipoUsuario());
             ps.setString(6, usuario.getTelefoneCelular());
             if (ps.executeUpdate() > 0){
-                String sqlCodusuario = "select codigo from usuario order by id_user DESC";
+                String sqlCodusuario = "select id_user from usuario order by id_user DESC";
                 try(PreparedStatement ps1 = getConnection().prepareStatement(sqlCodusuario)){
                     ResultSet rs = ps1.executeQuery();
                     if (rs.next()) {
                         long codUser = rs.getLong("id_user");
-                        if (usuario.getClienteTO() == null){
+                        if (usuario.getOficinaTO() != null){
                             String sqlOficina = "insert into oficina (oficina_id_user, cnpj_oficina, nome_oficina) values(?,?,?)";
                             try (PreparedStatement ps2 = getConnection().prepareStatement(sqlOficina)) {
                                 OficinaTO oficina = usuario.getOficinaTO();
@@ -90,19 +92,23 @@ public class UsuarioDAO extends Repository{
                             } catch (SQLException e) {
                                 System.out.println("Erro ao salvar: " + e.getMessage());
                             }
-                        } else {
-                            String sqlOficina = "insert into oficina (oficina_id_user, cnpj_oficina, nome_oficina) values(?,?,?)";
-                            try (PreparedStatement ps2 = getConnection().prepareStatement(sqlOficina)) {
-                                OficinaTO oficina = usuario.getOficinaTO();
-                                ps2.setLong(1, codUser);
-                                ps2.setString(2, oficina.getCnpjOficina());
-                                ps2.setString(3, oficina.getNomeOficina());
-                                if (ps2.executeUpdate() <= 0) {
+                        } else if (usuario.getClienteTO() != null){
+                            String sqlCliente = "insert into cliente (cliente_id_user, numero_cnh, cpf_cliente, data_nascimento, sexo) values(?,?,?,?,?)";
+                            try (PreparedStatement ps3 = getConnection().prepareStatement(sqlCliente)) {
+                                ClienteTO cliente = usuario.getClienteTO();
+                                ps3.setLong(1, codUser);
+                                ps3.setString(2, cliente.getNumeroCNH());
+                                ps3.setString(3, cliente.getCPFCliente());
+                                ps3.setDate(4, Date.valueOf(cliente.getDataNascimento()));
+                                ps3.setString(5, String.valueOf(cliente.getSexo()));
+                                if (ps3.executeUpdate() <= 0) {
                                     return null;
                                 }
                             } catch (SQLException e) {
                                 System.out.println("Erro ao salvar: " + e.getMessage());
                             }
+                        }else {
+                            return null;
                         }
                         return usuario;
                     }
