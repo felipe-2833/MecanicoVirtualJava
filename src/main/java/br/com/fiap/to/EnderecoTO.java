@@ -7,19 +7,19 @@ public class EnderecoTO {
     private String rua;
     private String cidade;
     private String estado;
-    private int number;
+    private Integer numero;
 
     public EnderecoTO() {
     }
 
-    public EnderecoTO(Long idEndereco, Long enderecoIdUser, String cep, String rua, String cidade, String estado, int number) {
+    public EnderecoTO(Long idEndereco, Long enderecoIdUser, String cep, String rua, String cidade, String estado, Integer numero) {
         this.idEndereco = idEndereco;
         this.enderecoIdUser = enderecoIdUser;
         this.cep = cep;
         this.rua = rua;
         this.cidade = cidade;
         this.estado = estado;
-        this.number = number;
+        this.numero = numero;
     }
 
     public Long getIdEndereco() {
@@ -70,11 +70,11 @@ public class EnderecoTO {
         this.estado = estado;
     }
 
-    public int getNumber() {
-        return number;
+    public Integer getNumero() {
+        return numero;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumero(Integer numero) {
+        this.numero = numero;
     }
 }
