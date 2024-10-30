@@ -8,6 +8,8 @@ public class UsuarioTO {
     private String senhaHashed;
     private String tipoUsuario;
     private String telefoneCelular;
+    private OficinaTO oficinaTO;
+    private ClienteTO clienteTO;
 
     public UsuarioTO() {
     }
@@ -24,6 +26,18 @@ public class UsuarioTO {
 
     public Long getIdUser() {
         return idUser;
+    }
+
+    public UsuarioTO(Long idUser, String nome, String sobrenome, String email, String senhaHashed, String tipoUsuario, String telefoneCelular, OficinaTO oficinaTO, ClienteTO clienteTO) {
+        this.idUser = idUser;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.email = email;
+        this.senhaHashed = senhaHashed;
+        this.tipoUsuario = tipoUsuario;
+        this.telefoneCelular = telefoneCelular;
+        this.oficinaTO = oficinaTO;
+        this.clienteTO = clienteTO;
     }
 
     public void setIdUser(Long idUser) {
@@ -76,5 +90,21 @@ public class UsuarioTO {
 
     public void setTelefoneCelular(String telefoneCelular) {
         this.telefoneCelular = telefoneCelular;
+    }
+
+    public OficinaTO getOficinaTO() {
+        return oficinaTO;
+    }
+
+    public void setOficinaTO(OficinaTO oficinaTO) {
+        this.oficinaTO = oficinaTO;
+    }
+
+    public ClienteTO getClienteTO() {
+        return clienteTO;
+    }
+
+    public void setClienteTO(ClienteTO clienteTO) {
+        this.clienteTO = clienteTO;
     }
 }

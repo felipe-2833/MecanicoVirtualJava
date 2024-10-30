@@ -1,25 +1,25 @@
 package br.com.fiap.to;
 
 public class OficinaTO {
-    private Long oficinaIdOficina;
+    private Long oficinaIdUser;
     private String cnpjOficina;
     private String nomeOficina;
 
     public OficinaTO() {
     }
 
-    public OficinaTO(Long oficinaIdOficina, String cnpjOficina, String nomeOficina) {
-        this.oficinaIdOficina = oficinaIdOficina;
+    public OficinaTO(Long oficinaIdUser, String cnpjOficina, String nomeOficina) {
+        this.oficinaIdUser = oficinaIdUser;
         this.cnpjOficina = cnpjOficina;
         this.nomeOficina = nomeOficina;
     }
 
-    public Long getOficinaIdOficina() {
-        return oficinaIdOficina;
+    public Long getOficinaIdUser() {
+        return oficinaIdUser;
     }
 
-    public void setOficinaIdOficina(Long oficinaIdOficina) {
-        this.oficinaIdOficina = oficinaIdOficina;
+    public void setOficinaIdUser(Long oficinaIdUser) {
+        this.oficinaIdUser = oficinaIdUser;
     }
 
     public String getCnpjOficina() {
