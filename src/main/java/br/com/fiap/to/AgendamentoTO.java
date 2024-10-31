@@ -1,23 +1,22 @@
 package br.com.fiap.to;
 
 import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 
 import java.time.LocalDate;
 
 public class AgendamentoTO {
     private Long chamadoIdChamado;
     private Long idAgenda;
-    @FutureOrPresent private LocalDate dataAgendamentoChamdo;
+    @FutureOrPresent
+    private LocalDate dataAgendamentoChamado;
 
     public AgendamentoTO() {
     }
 
-    public AgendamentoTO(Long chamadoIdChamado, Long idAgenda, LocalDate dataAgendamentoChamdo) {
+    public AgendamentoTO(Long chamadoIdChamado, Long idAgenda, LocalDate dataAgendamentoChamado) {
         this.chamadoIdChamado = chamadoIdChamado;
         this.idAgenda = idAgenda;
-        this.dataAgendamentoChamdo = dataAgendamentoChamdo;
+        this.dataAgendamentoChamado = dataAgendamentoChamado;
     }
 
     public Long getChamadoIdChamado() {
@@ -36,11 +35,11 @@ public class AgendamentoTO {
         this.idAgenda = idAgenda;
     }
 
-    public LocalDate getDataAgendamentoChamdo() {
-        return dataAgendamentoChamdo;
+    public LocalDate getDataAgendamentoChamado() {
+        return dataAgendamentoChamado;
     }
 
-    public void setDataAgendamentoChamdo(LocalDate dataAgendamentoChamdo) {
-        this.dataAgendamentoChamdo = dataAgendamentoChamdo;
+    public void setDataAgendamentoChamado(LocalDate dataAgendamentoChamado) {
+        this.dataAgendamentoChamado = dataAgendamentoChamado;
     }
 }
