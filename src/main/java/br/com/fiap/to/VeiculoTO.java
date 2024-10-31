@@ -6,8 +6,8 @@ public class VeiculoTO {
     private Long clienteIdUser;
     private String tipoVeiculo;
     private String placaveiculo;
-    private int anoModelo;
-    private int anoFabricacao;
+    private Integer anoModelo;
+    private Integer anoFabricacao;
     private String historicoManutencao;
     private String cor;
     private String combustivel;
@@ -18,7 +18,7 @@ public class VeiculoTO {
     public VeiculoTO() {
     }
 
-    public VeiculoTO(Long idVeiculo, Long idModelo, Long clienteIdUser, String tipoVeiculo, String placaveiculo, int anoModelo, int anoFabricacao, String historicoManutencao, String cor, String combustivel, String motor, Double quilometragem, String tipoOleo) {
+    public VeiculoTO(Long idVeiculo, Long idModelo, Long clienteIdUser, String tipoVeiculo, String placaveiculo, Integer anoModelo, Integer anoFabricacao, String historicoManutencao, String cor, String combustivel, String motor, Double quilometragem, String tipoOleo) {
         this.idVeiculo = idVeiculo;
         this.idModelo = idModelo;
         this.clienteIdUser = clienteIdUser;
@@ -74,19 +74,19 @@ public class VeiculoTO {
         this.placaveiculo = placaveiculo;
     }
 
-    public int getAnoModelo() {
+    public Integer getAnoModelo() {
         return anoModelo;
     }
 
-    public void setAnoModelo(int anoModelo) {
+    public void setAnoModelo(Integer anoModelo) {
         this.anoModelo = anoModelo;
     }
 
-    public int getAnoFabricacao() {
+    public Integer getAnoFabricacao() {
         return anoFabricacao;
     }
 
-    public void setAnoFabricacao(int anoFabricacao) {
+    public void setAnoFabricacao(Integer anoFabricacao) {
         this.anoFabricacao = anoFabricacao;
     }
 
