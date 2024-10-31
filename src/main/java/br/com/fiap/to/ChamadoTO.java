@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class ChamadoTO {
     private Long clienteUserId;
     private Long oficinaUserId;
-    private Long veiculoUserId;
+    private Long veiculoIdVeiculo;
     private Long idChamdo;
     @NotBlank private String Status;
     @PastOrPresent private LocalDate dataAbertura;
@@ -18,10 +18,10 @@ public class ChamadoTO {
     public ChamadoTO() {
     }
 
-    public ChamadoTO(Long clienteUserId,Long oficinaUserId, Long veiculoUserId, Long idChamdo,String status, LocalDate dataAbertura) {
+    public ChamadoTO(Long clienteUserId,Long oficinaUserId, Long veiculoIdVeiculo, Long idChamdo,String status, LocalDate dataAbertura) {
         this.clienteUserId = clienteUserId;
         this.oficinaUserId = oficinaUserId;
-        this.veiculoUserId = veiculoUserId;
+        this.veiculoIdVeiculo = veiculoIdVeiculo;
         this.idChamdo = idChamdo;
         Status = status;
         this.dataAbertura = dataAbertura;
@@ -43,12 +43,12 @@ public class ChamadoTO {
         this.oficinaUserId = oficinaUserId;
     }
 
-    public Long getVeiculoUserId() {
-        return veiculoUserId;
+    public Long getVeiculoIdVeiculo() {
+        return veiculoIdVeiculo;
     }
 
-    public void setVeiculoUserId( Long veiculoUserId) {
-        this.veiculoUserId = veiculoUserId;
+    public void setVeiculoIdVeiculo( Long veiculoIdVeiculo) {
+        this.veiculoIdVeiculo = veiculoIdVeiculo;
     }
 
     public Long getIdChamdo() {

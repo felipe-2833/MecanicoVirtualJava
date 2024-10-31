@@ -2,6 +2,8 @@ package br.com.fiap.dao;
 
 import br.com.fiap.to.ChamadoTO;
 
+import javax.xml.crypto.Data;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,13 +18,12 @@ public class ChamadoDAO extends Repository{
             if (rs != null) {
                 while (rs.next()){
                     ChamadoTO chamado = new ChamadoTO();
-                    chamado.setIdEndereco(rs.getLong("id_chamado"));
-                    chamado.setEnderecoIdUser(rs.getLong("chamado_id_user"));
-                    chamado.setCep(rs.getString("cep"));
-                    chamado.setRua(rs.getString("rua"));
-                    chamado.setCidade(rs.getString("cidade"));
-                    chamado.setEstado(rs.getString("estado"));
-                    chamado.setNumero(rs.getInt("numero"));
+                    chamado.setClienteUserId(rs.getLong("cliente_user_id"));
+                    chamado.setOficinaUserId(rs.getLong("oficina_user_id"));
+                    chamado.setVeiculoIdVeiculo(rs.getLong("veiculo_id_veiculo"));
+                    chamado.setIdChamdo(rs.getLong("id_chamado"));
+                    chamado.setStatus(rs.getString("status"));
+                    chamado.setDataAbertura(rs.getDate("data_abertura").toLocalDate());
                     chamados.add(chamado); //Adiciona remedio ao arrayList
                 }
             }else {
@@ -43,13 +44,12 @@ public class ChamadoDAO extends Repository{
             ps.setLong(1, idChamado);
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                chamado.setIdEndereco(rs.getLong("id_chamado"));
-                chamado.setEnderecoIdUser(rs.getLong("chamado_id_user"));
-                chamado.setCep(rs.getString("cep"));
-                chamado.setRua(rs.getString("rua"));
-                chamado.setCidade(rs.getString("cidade"));
-                chamado.setEstado(rs.getString("estado"));
-                chamado.setNumero(rs.getInt("numero"));
+                chamado.setClienteUserId(rs.getLong("cliente_user_id"));
+                chamado.setOficinaUserId(rs.getLong("oficina_user_id"));
+                chamado.setVeiculoIdVeiculo(rs.getLong("veiculo_id_veiculo"));
+                chamado.setIdChamdo(rs.getLong("id_chamado"));
+                chamado.setStatus(rs.getString("status"));
+                chamado.setDataAbertura(rs.getDate("data_abertura").toLocalDate());
             }else {
                 return null;
             }
@@ -62,14 +62,13 @@ public class ChamadoDAO extends Repository{
     }
 
     public ChamadoTO save(ChamadoTO chamado){
-        String sql = "insert into chamado (chamado_id_user, cep, rua, cidade, estado, numero) values(?,?,?,?,?,?)";
+        String sql = "insert into chamado (cliente_user_id, oficina_user_id, veiculo_id_veiculo, status, data_abertura) values(?,?,?,?,?)";
         try(PreparedStatement ps = getConnection().prepareStatement(sql)) {
-            ps.setLong(1, chamado.getEnderecoIdUser());
-            ps.setString(2, chamado.getCep());
-            ps.setString(3, chamado.getRua());
-            ps.setString(4, chamado.getCidade());
-            ps.setString(5, chamado.getEstado());
-            ps.setInt(6, chamado.getNumero());
+            ps.setLong(1, chamado.getClienteUserId());
+            ps.setLong(2, chamado.getOficinaUserId());
+            ps.setLong(3, chamado.getVeiculoIdVeiculo());
+            ps.setString(4, chamado.getStatus());
+            ps.setDate(5, Date.valueOf(chamado.getDataAbertura()));
             if (ps.executeUpdate() > 0){
                 return chamado;
             }else {
@@ -97,15 +96,14 @@ public class ChamadoDAO extends Repository{
     }
 
     public ChamadoTO update(ChamadoTO chamado){
-        String sql = "update chamado set chamado_id_user = ?, cep = ?, rua = ?, cidade = ?, estado = ?, numero = ? where id_chamado = ?";
+        String sql = "update chamado set cliente_user_id = ?, oficina_user_id = ?, veiculo_id_veiculo = ?, status = ?, data_abertura = ? where id_chamado = ?";
         try(PreparedStatement ps = getConnection().prepareStatement(sql)) {
-            ps.setLong(1, chamado.getEnderecoIdUser());
-            ps.setString(2, chamado.getCep());
-            ps.setString(3, chamado.getRua());
-            ps.setString(4, chamado.getCidade());
-            ps.setString(5, chamado.getEstado());
-            ps.setInt(6, chamado.getNumero());
-            ps.setLong(7, chamado.getIdEndereco());
+            ps.setLong(1, chamado.getClienteUserId());
+            ps.setLong(2, chamado.getOficinaUserId());
+            ps.setLong(3, chamado.getVeiculoIdVeiculo());
+            ps.setString(4, chamado.getStatus());
+            ps.setDate(5, Date.valueOf(chamado.getDataAbertura()));
+            ps.setLong(6, chamado.getIdChamdo());
             if (ps.executeUpdate() > 0){
                 return chamado;
             }else {

@@ -12,7 +12,6 @@ public class EnderecoTO {
     @NotBlank private String rua;
     @NotBlank private String cidade;
     @NotBlank private String estado;
-    @Positive
     private Integer numero;
 
     public EnderecoTO() {
