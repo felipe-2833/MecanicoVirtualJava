@@ -1,9 +1,13 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 public class OrcamentoPecasTO {
 
     private Long orcamentoIdOrcamento;
     private Long pecasIdPecas;
+    @NotNull @Positive
     private Double quantidade;
 
     public OrcamentoPecasTO() {

@@ -1,5 +1,8 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+
 import java.time.LocalDate;
 
 public class DiagnosticosTO {
@@ -7,9 +10,9 @@ public class DiagnosticosTO {
     private Long chamadoIdChamado;
     private Long problemaIdProblema;
     private Long idDiagnostico;
-    private String problemaIdentificado;
-    private String pecasNecessarias;
-    private LocalDate dataDiagnostico;
+    @NotBlank private String problemaIdentificado;
+    @NotBlank private String pecasNecessarias;
+    @PastOrPresent private LocalDate dataDiagnostico;
 
     public DiagnosticosTO() {
     }

@@ -1,8 +1,13 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
+
 public class OficinaServicoTO {
     private Long oficinaIdOficina;
     private Long servicoIdservico;
+    @NotNull @PositiveOrZero
     private Double precoServico;
 
     public OficinaServicoTO() {

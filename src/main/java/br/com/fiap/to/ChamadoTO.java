@@ -8,22 +8,17 @@ import jakarta.validation.constraints.Positive;
 import java.time.LocalDate;
 
 public class ChamadoTO {
-    @NotNull @Positive
     private Long clienteUserId;
-    @NotNull @Positive
     private Long oficinaUserId;
-    @NotNull @Positive
     private Long veiculoUserId;
     private Long idChamdo;
-    @NotBlank
-    private String Status;
-    @PastOrPresent
-    private LocalDate dataAbertura;
+    @NotBlank private String Status;
+    @PastOrPresent private LocalDate dataAbertura;
 
     public ChamadoTO() {
     }
 
-    public ChamadoTO(@NotNull @Positive Long clienteUserId,@NotNull @Positive Long oficinaUserId, @NotNull @Positive Long veiculoUserId, Long idChamdo,@NotBlank String status, @PastOrPresent LocalDate dataAbertura) {
+    public ChamadoTO(Long clienteUserId,Long oficinaUserId, Long veiculoUserId, Long idChamdo,String status, LocalDate dataAbertura) {
         this.clienteUserId = clienteUserId;
         this.oficinaUserId = oficinaUserId;
         this.veiculoUserId = veiculoUserId;
@@ -32,27 +27,27 @@ public class ChamadoTO {
         this.dataAbertura = dataAbertura;
     }
 
-    public @NotNull @Positive Long getClienteUserId() {
+    public Long getClienteUserId() {
         return clienteUserId;
     }
 
-    public void setClienteUserId(@NotNull @Positive Long clienteUserId) {
+    public void setClienteUserId(Long clienteUserId) {
         this.clienteUserId = clienteUserId;
     }
 
-    public @NotNull @Positive Long getOficinaUserId() {
+    public Long getOficinaUserId() {
         return oficinaUserId;
     }
 
-    public void setOficinaUserId(@NotNull @Positive Long oficinaUserId) {
+    public void setOficinaUserId(Long oficinaUserId) {
         this.oficinaUserId = oficinaUserId;
     }
 
-    public @NotNull @Positive Long getVeiculoUserId() {
+    public Long getVeiculoUserId() {
         return veiculoUserId;
     }
 
-    public void setVeiculoUserId(@NotNull @Positive Long veiculoUserId) {
+    public void setVeiculoUserId( Long veiculoUserId) {
         this.veiculoUserId = veiculoUserId;
     }
 
@@ -64,19 +59,19 @@ public class ChamadoTO {
         this.idChamdo = idChamdo;
     }
 
-    public @NotBlank String getStatus() {
+    public String getStatus() {
         return Status;
     }
 
-    public void setStatus(@NotBlank String status) {
+    public void setStatus( String status) {
         Status = status;
     }
 
-    public @PastOrPresent LocalDate getDataAbertura() {
+    public LocalDate getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(@PastOrPresent LocalDate dataAbertura) {
+    public void setDataAbertura(LocalDate dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 }

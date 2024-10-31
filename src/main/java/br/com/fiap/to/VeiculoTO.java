@@ -1,19 +1,24 @@
 package br.com.fiap.to;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+
 public class VeiculoTO {
     private Long idVeiculo;
     private Long idModelo;
     private Long clienteIdUser;
-    private String tipoVeiculo;
-    private String placaveiculo;
-    private Integer anoModelo;
-    private Integer anoFabricacao;
-    private String historicoManutencao;
-    private String cor;
-    private String combustivel;
-    private String motor;
-    private Double quilometragem;
-    private String tipoOleo;
+    @NotBlank private String tipoVeiculo;
+    @NotBlank private String placaveiculo;
+    @Positive @Min(1900) private Integer anoModelo;
+    @Positive @Min(1900) private Integer anoFabricacao;
+    @Positive private String historicoManutencao;
+    @NotBlank private String cor;
+    @NotBlank private String combustivel;
+    @NotBlank private String motor;
+    @NotBlank private Double quilometragem;
+    @NotBlank private String tipoOleo;
 
     public VeiculoTO() {
     }

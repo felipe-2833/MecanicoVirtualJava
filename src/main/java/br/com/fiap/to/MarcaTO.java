@@ -1,8 +1,10 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class MarcaTO {
     private Long idMarca;
-    private String nomeMarca;
+    @NotBlank private String nomeMarca;
 
     public MarcaTO() {
     }

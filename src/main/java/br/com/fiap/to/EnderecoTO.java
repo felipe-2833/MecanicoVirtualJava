@@ -1,12 +1,18 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 public class EnderecoTO {
     private Long idEndereco;
     private Long enderecoIdUser;
-    private String cep;
-    private String rua;
-    private String cidade;
-    private String estado;
+    @NotBlank private String cep;
+    @NotBlank private String rua;
+    @NotBlank private String cidade;
+    @NotBlank private String estado;
+    @Positive
     private Integer numero;
 
     public EnderecoTO() {

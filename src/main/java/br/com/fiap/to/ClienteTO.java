@@ -8,14 +8,10 @@ import java.time.LocalDate;
 
 public class ClienteTO {
     private Long clienteIdUser;
-    @NotBlank
     private String numeroCNH;
-    @NotBlank
-    private String CPFCliente;
-    @PastOrPresent
-    private LocalDate dataNascimento;
-    @NotNull
-    private char sexo;
+    @NotBlank private String CPFCliente;
+    @PastOrPresent private LocalDate dataNascimento;
+    @NotNull private char sexo;
 
     public ClienteTO() {
     }
@@ -36,31 +32,30 @@ public class ClienteTO {
         this.clienteIdUser = clienteIdUser;
     }
 
-    public @NotBlank String getNumeroCNH() {
+    public String getNumeroCNH() {
         return numeroCNH;
     }
 
-    public void setNumeroCNH(@NotBlank String numeroCNH) {
+    public void setNumeroCNH( String numeroCNH) {
         this.numeroCNH = numeroCNH;
     }
 
-    public @NotBlank String getCPFCliente() {
+    public String getCPFCliente() {
         return CPFCliente;
     }
 
-    public void setCPFCliente(@NotBlank String CPFCliente) {
+    public void setCPFCliente( String CPFCliente) {
         this.CPFCliente = CPFCliente;
     }
 
-    public @PastOrPresent LocalDate getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(@PastOrPresent LocalDate dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    @NotNull
     public char getSexo() {
         return sexo;
     }

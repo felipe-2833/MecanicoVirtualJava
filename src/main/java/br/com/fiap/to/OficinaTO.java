@@ -1,9 +1,11 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class OficinaTO {
     private Long oficinaIdUser;
-    private String cnpjOficina;
-    private String nomeOficina;
+    @NotBlank private String cnpjOficina;
+    @NotBlank private String nomeOficina;
 
     public OficinaTO() {
     }

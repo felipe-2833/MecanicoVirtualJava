@@ -1,11 +1,16 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+
 public class PecasTO {
     private Long idPecas;
-    private String nomePeca;
-    private String marca;
-    private String modelo;
-    private String categoria;
+    @NotBlank private String nomePeca;
+    @NotBlank private String marca;
+    @NotBlank private String modelo;
+    @NotBlank private String categoria;
+    @NotNull @PositiveOrZero
     private Double precoPeca;
 
     public PecasTO() {

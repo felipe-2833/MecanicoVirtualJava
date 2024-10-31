@@ -1,15 +1,18 @@
 package br.com.fiap.to;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+
 public class UsuarioTO {
     private Long idUser;
-    private String nome;
-    private String sobrenome;
-    private String email;
-    private String senhaHashed;
-    private String tipoUsuario;
-    private String telefoneCelular;
-    private OficinaTO oficinaTO;
-    private ClienteTO clienteTO;
+    @NotBlank private String nome;
+    @NotBlank private String sobrenome;
+    @NotBlank private String email;
+    @NotBlank private String senhaHashed;
+    @NotBlank private String tipoUsuario;
+    @NotBlank private String telefoneCelular;
+    @Valid private OficinaTO oficinaTO;
+    @Valid private ClienteTO clienteTO;
 
     public UsuarioTO() {
     }

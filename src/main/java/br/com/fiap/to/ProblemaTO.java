@@ -1,10 +1,12 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class ProblemaTO {
     private Long veiculoIdVeiculo;
     private Long idProblema;
-    private String tipoProblema;
-    private String relatoProblema;
+    @NotBlank private String tipoProblema;
+    @NotBlank private String relatoProblema;
 
     public ProblemaTO() {
     }

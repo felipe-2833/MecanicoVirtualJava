@@ -1,8 +1,10 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class ServicoTO {
     private Long idServico;
-    private String tipoServico;
+    @NotBlank private String tipoServico;
 
     public ServicoTO() {
     }
